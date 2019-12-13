@@ -1,0 +1,52 @@
+
+
+
+    <!-- Button to Open the Modal -->
+
+      
+      <!-- The Modal -->
+      <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Login </h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- ;fo.reset() -->
+            <!-- Modal body -->
+             <div class="modal-body">
+         
+
+  <form #form="ngForm" (ngSubmit)="loginObj(form.value)">
+    <input type="radio" name="name" value="user" ngModel>user 
+    <input type="radio" name="name" value="admin" ngModel>admin  <br>
+    
+            <label for="fname" class="text-primary">username</label>
+            <input type="text"  name="username"   placeholder="username" ngModel #ref5="ngModel"
+            required class="form-control">
+            <div *ngIf="ref5.invalid && (ref5.dirty || ref5.touched)" class="alert text-danger">
+                <div *ngIf="ref5.errors?.required"> *This label required</div>
+    
+            </div>
+           
+            <label for="fname" class="text-primary">password</label>
+            <input type="text"  name="password" placeholder="password" ngModel #ref9="ngModel"
+            required class="form-control ">
+            <div *ngIf="ref9.invalid && (ref9.dirty || ref9.touched)" class="alert text-danger">
+                <div *ngIf="ref9.errors?.required">*this label is required</div>
+            </div>
+            <button type="submit" class="form-control btn btn-success" [disabled]="form.invalid">login</button>
+    
+        </form>
+
+
+            </div> 
+      
+           
+      
+          </div>
+        </div>
+      </div> 
+      

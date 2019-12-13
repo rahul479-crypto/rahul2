@@ -1,0 +1,96 @@
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h1 class="text-center text-success" style="margin-top: px;">Registetion Form</h1>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container-fluid ">
+          <form #fo="ngForm" (ngSubmit)="userObj(fo.value)">
+            <label for="fname" class="text-primary">FirstName</label>
+            <input type="text" id="h1" name="FirstName" placeholder="FirstName" ngModel #ref5="ngModel" required class="form-control">
+
+
+            <div *ngIf="ref5.invalid && (ref5.dirty||ref5.touched)" class="alert alert-danger">
+              <div *ngIf="ref5.errors?.required"> *this label is required</div>
+            </div>
+
+
+
+            <label for="fname" class="text-primary">Last Name</label>
+            <input type="text" id="h1" name="LastName" placeholder="Last Name" ngModel #ref9="ngModel" required
+              class="form-control ">
+            <div *ngIf="ref9.invalid && (ref9.dirty||ref9.touched)" class="alert alert-danger">
+              <div *ngIf="ref9.errors?.required"> *this label is required</div>
+            </div>
+            <label for="fname" class="text-primary">username</label>
+            <input type="text" id="h1" name="username" pattern="^[A-Za-z][A-Za-z0-9]*$" placeholder="username" ngModel
+              #ref8="ngModel" required class="form-control">
+            <div *ngIf="ref8.invalid && (ref8.dirty||ref8.touched)" class="alert alert-danger">
+              <div *ngIf="ref8.errors?.required"> *this label is required</div>
+              <div *ngIf="ref8.errors?.pattern">*NO Spaceace allowed</div>
+            </div>
+            <label for="fname" class="text-primary">Mobile Number</label>
+            <input type="text" id="h1" name="MobileNumber" placeholder="MobileNumber" pattern="^[6-9][0-9]{9}$" ngModel
+              #ref7="ngModel" maxlength="10" required class="form-control">
+            <div *ngIf="ref7.invalid && (ref7.dirty || ref7.touched)">
+              <div *ngIf="ref7.errors?.maxlength" class="text text-danger">*phone number only 10 digits accept</div>
+              <div *ngIf="ref7.errors?.pattern" class="alert text-danger">*Number starts with 6 and 7 and 8 and 9 only
+              </div>
+            </div>
+
+            <label for="lname" class="text-secondary">Gender</label><br>
+            <input type="radio" id="h1" name="Gender" placeholder="Gender" ngModel #ref1="ngModel" class="" value="male"
+              required>Male
+            <input type="radio" id="h1" name="Gender" placeholder="Gender" ngModel #ref1="ngModel" class=""
+              value="female" required>Female
+            <input type="radio" id="h1" name="Gender" placeholder="Gender" ngModel #ref1="ngModel" class=""
+              value="Other" required>Other
+            <br>
+            password:
+            <input type="text" name="password" placeholder="password" ngModel #ref3="ngModel" required
+              pattern="\d...[A-Z]{4}" class="form-control" id="h1" autocomplete="off" minlength="8">
+
+            <div *ngIf="ref3.invalid && (ref3.dirty||ref3.touched)" class=" text-center text-danger">
+              <div *ngIf="ref3.errors?.required"> *this label is required</div>
+
+              <div *ngIf="ref3.errors?.pattern"></div>
+
+              <div *ngIf="ref3.errors?.minlength" class="text text-warning">
+                
+              </div>
+            </div>
+
+
+
+            conform password:
+            <input type="text" name="conformpassword" placeholder="conformpassword" ngModel #ref4="ngModel"
+              pattern={{ref3.value}} required class="form-control" id="h1" autocomplete="off" minlength="8">
+
+            <div *ngIf="ref4.invalid && (ref4.dirty||ref4.touched)" class=" text-center text-danger">
+              <div *ngIf="ref4.errors?.required"> *this label is required</div>
+
+              <div *ngIf="ref4.errors?.pattern"> *password Do Not Match</div>
+
+              <div *ngIf="ref4.errors?.minlength" class="text text-warning">
+                
+              </div>
+
+            </div>
+
+
+
+            <button type="submit"  class="form-control btn btn-success" id="h2">submit</button>
+          </form>
+
+
+
+        </div>
+      </div>
+    </div>
